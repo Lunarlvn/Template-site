@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katkıda Bulunanlar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            background-color: #232323;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #8c9eff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8c9eff;
+        }
+
+        .contributors {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #8c9eff;
+            margin: 2rem 0;
+            font-size: 2rem;
+        }
+
+        .contributors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contributor-card {
+            background-color: #232323;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .contributor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contributor-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid #8c9eff;
+        }
+
+        .contributor-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #8c9eff;
+        }
+
+        .contributor-role {
+            color: #cccccc;
+            margin-bottom: 1rem;
+        }
+
+        .contributor-description {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            color: #8c9eff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            background-color: #2d2d2d;
+            transition: background-color 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: #363636;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Bot İsmi</a>
+            <div class="nav-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="komutlar.html">Komutlar</a>
+                <a href="DISCORD_DAVET_LINKI_BURAYA" target="_blank">Destek Sunucusu</a>
+                <a href="katkida-bulunanlar.html">Katkıda Bulunanlar</a>
+                <a href="gelistirici.html">Geliştiriciyi Destekle</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contributors">
+        <h1 class="section-title">Katkıda Bulunanlar</h1>
+        
+        <div class="contributors-grid">
+            <div class="contributor-card">
+                <img src="PROFIL_RESMI_1" alt="Bot Geliştiricisi" class="contributor-image">
+                <h2 class="contributor-name">Geliştirici Adı</h2>
+                <div class="contributor-role">Bot Geliştiricisi</div>
+                <p class="contributor-description">
+                    Bot'un ana geliştiricisi ve kurucusu. Tüm temel özelliklerin geliştirilmesinden sorumludur.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link">Github</a>
+                    <a href="#" class="social-link">Discord</a>
+                </div>
+            </div>
+
+            <!-- Diğer katkıda bulunanlar için kartları buraya ekleyebilirsiniz -->
+        </div>
+    </div>
+</body>
+</html>

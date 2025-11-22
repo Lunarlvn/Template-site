@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wagu - Discord Bot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Wagu</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#commands" class="nav-link">Komutlar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#support" class="nav-link">Destek Sunucusu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contributors" class="nav-link">Katkıda Bulunanlar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#support-dev" class="nav-link">Geliştiriciyi Destekle</a>
+                </li>
+            </ul>
+            <div class="nav-auth">
+                <div id="login-section" class="auth-section">
+                        <button class="btn btn-discord-login" onclick="loginWithDiscord()">
+                            <i class="fab fa-discord"></i>
+                            Discord ile Giriş
+                        </button>
+                    </div>
+                    <div id="user-section" class="auth-section" style="display: none; position: relative;">
+                        <div class="user-profile" id="user-profile-btn" onclick="toggleProfileDropdown()">
+                            <img id="user-avatar" src="" alt="Avatar" class="user-avatar">
+                            <div class="user-info">
+                                <span id="user-name" class="user-name"></span>
+                                <span id="user-discriminator" class="user-discriminator"></span>
+                            </div>
+                        </div>
+                        <!-- Admin quick button next to avatar -->
+                        <button id="open-admin-btn" class="btn btn-secondary" style="margin-left:8px; height:36px;" onclick="window.location.href='/admin.html'" title="Yönetim Paneli">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        </div>
+                        <div id="profile-dropdown" style="display:none; position: absolute; right: 0; top: 60px; background: #0f1724; border: 1px solid rgba(59,130,246,0.2); padding: 1rem; border-radius: 8px; min-width:160px;">
+                            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                <img id="dropdown-avatar" src="" style="width:40px;height:40px;border-radius:50%;border:2px solid #3b82f6;" />
+                                <div style="display:flex;flex-direction:column;">
+                                    <strong id="dropdown-name" style="color:white;"></strong>
+                                    <small id="dropdown-disc" style="color:#9ca3af;"></small>
+                                </div>
+                            </div>
+                            <button class="btn btn-logout" style="width:100%;" onclick="logout()">Çıkış Yap</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <div class="hero-background">
+                <div class="anime-bg"></div>
+                <div class="particles">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Wagu</h1>
+                <button class="btn btn-status">Geliştirme Aşamasında</button>
+                <p class="hero-description">
+                    Sunucu deneyiminizi geliştirmek için güçlü moderasyon, ekonomi, seviye ve eğlence özellikleri sunan çok yönlü bir Discord botu.
+                </p>
+                <div class="btn-group">
+                    <button class="btn btn-primary">
+                        <i class="fab fa-discord"></i>
+                        Add to Discord
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-plus"></i>
+                        Discord'a Ekle
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features Section -->
+        <div class="features-section">
+            <div class="container">
+                <h2 class="features-title">Özellikler</h2>
+                <p class="features-subtitle">Wagu'yu Discord sunucunuz için mükemmel bir eklenti yapan özellikleri keşfedin</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Moderasyon</h3>
+                        <p class="feature-description">Gelişmiş moderasyon araçları ile sunucunuzu güvenli tutun</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3 class="feature-title">Ekonomi</h3>
+                        <p class="feature-description">Kullanıcılar için eğlenceli ekonomi sistemi</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="feature-title">Seviye Sistemi</h3>
+                        <p class="feature-description">Aktif kullanıcıları ödüllendiren seviye sistemi</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="feature-title">Eğlence Komutları</h3>
+                        <p class="feature-description">Sunucunuzu eğlenceli hale getiren komutlar</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3 class="feature-title">Özelleştirme</h3>
+                        <p class="feature-description">Sunucunuza özel ayarlar ve konfigürasyon</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 class="feature-title">Çoklu Dil</h3>
+                        <p class="feature-description">Türkçe ve İngilizce dil desteği</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section id="commands" class="section">
+        <div class="container">
+            <h2 class="section-title">Bot Komutları</h2>
+            <div class="commands-container">
+                <div class="command-categories">
+                    <div class="category-item" data-category="anime">
+                        <div class="category-header">
+                            <span class="category-title">🎭 Anime & Eğlence Komutları</span>
+                            <i class="fas fa-chevron-right category-arrow"></i>
+                        </div>
+                        <div class="category-commands" style="display: none;">
+                            <div class="command-item">
+                                <span class="command-name">!baka @kullanıcı</span>
+                                <span class="command-description">Belirtilen kullanıcıya baka/aptal dersiniz</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!bite @kullanıcı</span>
+                                <span class="command-description">Belirtilen kullanıcıyı ısırırsınız</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!blush</span>
+                                <span class="command-description">Utanırsınız</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!bonk @kullanıcı</span>
+                                <span class="command-description">Belirtilen kullanıcının kafasına vurursunuz</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!hug @kullanıcı</span>
+                                <span class="command-description">Belirtilen kullanıcıya anime tarzında sarılırsınız</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!kiss @kullanıcı</span>
+                                <span class="command-description">Belirtilen kullanıcıyı öpersiniz</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!slap @kullanıcı</span>
+                                <span class="command-description">Belirtilen kullanıcıya anime tarzında tokat atarsınız</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!neko</span>
+                                <span class="command-description">Rastgele bir neko resmi gösterir</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!waifu</span>
+                                <span class="command-description">Rastgele bir waifu resmi gösterir</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="category-item" data-category="genel">
+                        <div class="category-header">
+                            <span class="category-title">⚡ Genel Komutları</span>
+                            <i class="fas fa-chevron-right category-arrow"></i>
+                        </div>
+                        <div class="category-commands" style="display: none;">
+                            <div class="command-item">
+                                <span class="command-name">!8ball <soru></span>
+                                <span class="command-description">Sihirli 8-top ile sorunuza cevap alın</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!afk [sebep]</span>
+                                <span class="command-description">Gelişmiş AFK sistemi - sebep, istatistik ve otomatik nickname değiştirme</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!ship @kullanıcı1 [@kullanıcı2]</span>
+                                <span class="command-description">İki kullanıcı arasındaki aşkı ölçer ve kapsamlı analiz sunar</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!avatar [@kullanıcı]</span>
+                                <span class="command-description">Belirtilen kullanıcının veya kendi avatarınızı gösterir</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!bilgi</span>
+                                <span class="command-description">Gelişmiş bot ve sistem bilgi merkezi</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!ping</span>
+                                <span class="command-description">Botun ve Discord API'sinin gecikme süresini gösterir</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!server</span>
+                                <span class="command-description">Sunucu hakkında detaylı istatistikleri gösterir</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!yardim [komut_adı]</span>
+                                <span class="command-description">Gelişmiş bot yardım sistemi - komutları keşfedin!</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="category-item" data-category="moderasyon">
+                        <div class="category-header">
+                            <span class="category-title">🛡️ Moderasyon Komutları</span>
+                            <i class="fas fa-chevron-right category-arrow"></i>
+                        </div>
+                        <div class="category-commands" style="display: none;">
+                            <div class="command-item">
+                                <span class="command-name">!ban <@kullanıcı/ID> [sebep]</span>
+                                <span class="command-description">Belirtilen kullanıcıyı sunucudan yasaklar</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!kick @kullanıcı [sebep]</span>
+                                <span class="command-description">Belirtilen kullanıcıyı sunucudan atar</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!clear <miktar></span>
+                                <span class="command-description">Belirtilen sayıda mesajı siler (1-100 arası)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!lock [sebep]</span>
+                                <span class="command-description">Kanalı kilitler - kimse mesaj gönderemez</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!unlock [sebep]</span>
+                                <span class="command-description">Kanalın kilidini açar</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!timeout @kullanıcı <süre> [sebep]</span>
+                                <span class="command-description">Kullanıcıya zaman aşımı verir</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!warn ekle <kullanıcı> [sebep]</span>
+                                <span class="command-description">Gelişmiş uyarı yönetim sistemi - Rol bazlı yetkilendirme ile</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="category-item" data-category="sistem">
+                        <div class="category-header">
+                            <span class="category-title">⚙️ Sistem Komutları</span>
+                            <i class="fas fa-chevron-right category-arrow"></i>
+                        </div>
+                        <div class="category-commands" style="display: none;">
+                            <div class="command-item">
+                                <span class="command-name">!katilayarla <#kanal></span>
+                                <span class="command-description">Katılım/ayrılma mesajları için kanalı ayarlar</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!level puan [@üye]</span>
+                                <span class="command-description">Level sistemi komutları - XP, seviye rolleri ve bildirimler</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!log aç <#kanal></span>
+                                <span class="command-description">Log sistemi komutları - sunucu etkinliklerini kaydetme</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">/ticketayar</span>
+                                <span class="command-description">Destek ticket sistemini yapılandırır</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="category-item" data-category="yonetim">
+                        <div class="category-header">
+                            <span class="category-title">👑 Yönetim Komutları</span>
+                            <i class="fas fa-chevron-right category-arrow"></i>
+                        </div>
+                        <div class="category-commands" style="display: none;">
+                            <div class="command-item">
+                                <span class="command-name">!allrolal <@rol></span>
+                                <span class="command-description">Herkesten belirtilen rolü alır</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!allrolver <@rol></span>
+                                <span class="command-description">Herkese belirtilen rolü verir</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!emojiekle <emoji_url> <emoji_adı></span>
+                                <span class="command-description">Sunucuya emoji ekler</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!emojirol ekle <mesaj_id> <emoji> <@rol></span>
+                                <span class="command-description">Emoji ile rol verme sistemini ayarlar</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-name">!setnick @kullanıcı <yeni_isim></span>
+                                <span class="command-description">Belirtilen kullanıcının sunucudaki ismini değiştirir</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <!-- Support Server Section -->
+    <section id="support" class="section">
+        <div class="container">
+            <div class="support-content">
+                <h2 class="section-title">Destek Sunucusu</h2>
+                <p class="support-description">
+                    Wagu botu hakkında sorularınız, önerileriniz veya yardıma ihtiyacınız varsa Discord sunucumuza katılın!
+                </p>
+                <button class="btn btn-discord" onclick="window.open('https://discord.gg/your-invite-link', '_blank')">
+                    <i class="fab fa-discord"></i>
+                    Discord Sunucusuna Katıl
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contributors Section -->
+    <section id="contributors" class="section">
+        <div class="container">
+            <h2 class="section-title">Katkıda Bulunanlar</h2>
+            <div class="contributors-grid">
+                <div class="contributor-card">
+                    <div class="contributor-avatar">
+                        <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Contributor">
+                    </div>
+                    <div class="contributor-info">
+                        <h3 class="contributor-name">Geliştirici</h3>
+                        <p class="contributor-contribution">Ana geliştirici ve proje yöneticisi</p>
+                    </div>
+                </div>
+                
+                <div class="contributor-card">
+                    <div class="contributor-avatar">
+                        <img src="https://cdn.discordapp.com/embed/avatars/1.png" alt="Contributor">
+                    </div>
+                    <div class="contributor-info">
+                        <h3 class="contributor-name">UI Tasarımcısı</h3>
+                        <p class="contributor-contribution">UI tasarımına yardım etti</p>
+                    </div>
+                </div>
+                
+            <div class="contributor-card">
+                    <div class="contributor-avatar">
+                        <img src="https://cdn.discordapp.com/embed/avatars/2.png" alt="Contributor">
+                    </div>
+                    <div class="contributor-info">
+                        <h3 class="contributor-name">Backend Geliştirici</h3>
+                        <p class="contributor-contribution">Ekonomi sistemini yazdı</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Developer Section -->
+    <section id="support-dev" class="section">
+        <div class="container">
+            <h2 class="section-title">Geliştiriciyi Destekle</h2>
+            <p class="support-dev-description">
+                Wagu, Discord topluluklarını geliştirmek için oluşturulmuş bir tutku projesidir. Desteğiniz botun çalışmasını sürdürmesine ve yeni özelliklerin eklenmesine yardımcı olur.
+            </p>
+            
+            <div class="support-card">
+                <h3 class="support-card-title">Bana Bir Kahve Ismarla</h3>
+                <p class="support-card-description">
+                    Wagu'yu kullanmaktan keyif alıyorsanız ve takdirinizi göstermek istiyorsanız, bana bir kahve ısmarlayabilirsiniz! Desteğiniz, botu geliştirmeye devam etmem için beni motive ediyor.
+                </p>
+                <button class="btn btn-coffee" onclick="window.open('https://buymeacoffee.com/your-username', '_blank')">
+                    <i class="fas fa-coffee"></i>
+                    Bana Bir Kahve Ismarla
+                </button>
+            </div>
+            
+            <p class="support-footer">Desteğiniz için teşekkürler! ❤️</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

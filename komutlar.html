@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Komutları</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            background-color: #232323;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #8c9eff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8c9eff;
+        }
+
+        .commands-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .command-category {
+            background-color: #232323;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .category-header {
+            background-color: #2d2d2d;
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-header:hover {
+            background-color: #363636;
+        }
+
+        .category-content {
+            padding: 1rem;
+        }
+
+        .command-item {
+            background-color: #2d2d2d;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .command-name {
+            color: #8c9eff;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .command-description {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #8c9eff;
+            margin: 2rem 0;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Bot İsmi</a>
+            <div class="nav-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="komutlar.html">Komutlar</a>
+                <a href="DISCORD_DAVET_LINKI_BURAYA" target="_blank">Destek Sunucusu</a>
+                <a href="katkida-bulunanlar.html">Katkıda Bulunanlar</a>
+                <a href="gelistirici.html">Geliştiriciyi Destekle</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="commands-container">
+        <h1 class="section-title">Bot Komutları</h1>
+        
+        <div class="command-category">
+            <div class="category-header">
+                <h2>🛡️ Moderasyon Komutları</h2>
+            </div>
+            <div class="category-content">
+                <div class="command-item">
+                    <div class="command-name">/ban</div>
+                    <div class="command-description">Belirtilen kullanıcıyı sunucudan yasaklar.</div>
+                </div>
+                <div class="command-item">
+                    <div class="command-name">/kick</div>
+                    <div class="command-description">Belirtilen kullanıcıyı sunucudan atar.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-category">
+            <div class="category-header">
+                <h2>💰 Ekonomi Komutları</h2>
+            </div>
+            <div class="category-content">
+                <div class="command-item">
+                    <div class="command-name">/para</div>
+                    <div class="command-description">Mevcut paranızı gösterir.</div>
+                </div>
+                <div class="command-item">
+                    <div class="command-name">/çalış</div>
+                    <div class="command-description">Çalışarak para kazanmanızı sağlar.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-category">
+            <div class="category-header">
+                <h2>⭐ Seviye Komutları</h2>
+            </div>
+            <div class="category-content">
+                <div class="command-item">
+                    <div class="command-name">/seviye</div>
+                    <div class="command-description">Mevcut seviyenizi gösterir.</div>
+                </div>
+                <div class="command-item">
+                    <div class="command-name">/sıralama</div>
+                    <div class="command-description">Sunucudaki seviye sıralamasını gösterir.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

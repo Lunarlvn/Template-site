@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yönetim Paneli</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo"><h2>Bot Yönetim</h2></div>
+      <div class="nav-auth">
+        <div id="admin-user"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main style="padding-top:90px;">
+    <div class="container">
+      <h1 class="section-title">Sunucu Yönetimi</h1>
+      <p>Burada yönetici olduğunuz ve botun olduğu sunucular listelenecektir. Bir sunucu seçerek ayarlarını düzenleyebilirsiniz.</p>
+
+      <div id="servers-list"></div>
+
+      <div id="server-settings" style="display:none; margin-top:2rem;">
+        <h2 id="server-title"></h2>
+        <div id="save-bar" style="display:none; background:#111827; padding:1rem; border-radius:8px; margin-bottom:1rem;">
+          Değişiklikler kaydedilmedi. Kaydetmek ister misiniz?
+          <button id="save-btn" class="btn btn-primary" style="margin-left:1rem;">Kaydet</button>
+        </div>
+
+        <div class="card" style="padding:1rem;">
+          <label><input type="checkbox" id="toggle-welcome"> Hoş geldin/Hoşçakal mesajı etkinleştir</label>
+          <div id="channel-chooser" style="display:none; margin-top:1rem;">
+            <label>Mesaj kanalı seçin:</label>
+            <select id="welcome-channel"></select>
+          </div>
+        </div>
+
+        <div class="card" style="padding:1rem; margin-top:1rem;">
+          <label>Log kanalı:</label>
+          <select id="log-channel"></select>
+        </div>
+
+        <div class="card" style="padding:1rem; margin-top:1rem;">
+          <label>Ticket kanalı:</label>
+          <select id="ticket-channel"></select>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
